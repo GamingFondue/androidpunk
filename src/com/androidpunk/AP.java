@@ -9,12 +9,12 @@ public class AP {
 	private static World world;
 
 	public static void world(World world) {
-		Log.d(TAG, "AP.world(World)");
+		Log.d(TAG, "world(World)");
 		AP.world = world;
 	}
 	
 	public static World world() {
-		Log.d(TAG, "AP.world()");
+		Log.d(TAG, "world()");
 		return world;
 	}
 

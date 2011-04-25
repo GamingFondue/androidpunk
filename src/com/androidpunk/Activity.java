@@ -26,7 +26,7 @@ public class Activity extends android.app.Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Log.d(TAG, "Activity.onCreate(Bundle)");
+		Log.d(TAG, "onCreate(Bundle)");
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
@@ -39,7 +39,7 @@ public class Activity extends android.app.Activity {
 	 */
 	protected void onStart() {
 		super.onStart();
-		Log.d(TAG, "Activity.onStart()");
+		Log.d(TAG, "onStart()");
 	};
 	
 	/**
@@ -47,7 +47,7 @@ public class Activity extends android.app.Activity {
 	 */
 	protected void onRestart() {
 		super.onRestart();
-		Log.d(TAG, "Activity.onRestart()");
+		Log.d(TAG, "onRestart()");
 	}
 	
 	/**
@@ -56,7 +56,7 @@ public class Activity extends android.app.Activity {
 	@Override
 	protected void onPause() {
 		super.onPause();
-		Log.d(TAG, "Activity.onPause()");
+		Log.d(TAG, "onPause()");
 		// TODO: Free allocated resources
 	}
 	
@@ -66,7 +66,7 @@ public class Activity extends android.app.Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		Log.d(TAG, "Activity.onResume()");
+		Log.d(TAG, "onResume()");
 	}
 	
 	/**
@@ -74,7 +74,7 @@ public class Activity extends android.app.Activity {
 	 */
 	protected void onStop() {
 		super.onStop();
-		Log.d(TAG, "Activity.onStop()");
+		Log.d(TAG, "onStop()");
 	};
 	
 	/**
@@ -83,8 +83,8 @@ public class Activity extends android.app.Activity {
 	 * End of game lifecycle. 
 	 */
 	protected void onDestroy() {
+		Log.d(TAG, "onDestroy()");
 		super.onDestroy();
-		Log.d(TAG, "onDestroy");
 	};
 	
 }

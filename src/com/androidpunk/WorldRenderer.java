@@ -5,6 +5,7 @@ import javax.microedition.khronos.opengles.GL10;
 
 import android.opengl.GLU;
 import android.opengl.GLSurfaceView.Renderer;
+import android.util.Log;
 
 public class WorldRenderer implements Renderer {
 	
@@ -12,6 +13,8 @@ public class WorldRenderer implements Renderer {
 	
 	@Override
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+		Log.d(TAG, "onSurfaceCreated(GL10, EGLConfig)");
+		
 		// Set the background color to black ( rgba ).
 		gl.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 		
@@ -39,6 +42,7 @@ public class WorldRenderer implements Renderer {
 
 	@Override
 	public void onSurfaceChanged(GL10 gl, int width, int height) {
+		Log.d(TAG, "onSurfaceChanged(GL10, int, int)");
 		
 		// Sets the current view port to the new size.
 		gl.glViewport(0, 0, width, height);
@@ -58,7 +62,4 @@ public class WorldRenderer implements Renderer {
 		// Reset the modelview matrix
 		gl.glLoadIdentity();
 	}
-
-
-
 }
