@@ -3,19 +3,29 @@ package com.androidpunk;
 import android.util.Log;
 
 public class AP {
-	
-	public static String TAG = "[AndroidPunk]AP";
-	
-	private static World world;
 
-	public static void world(World world) {
-		Log.d(TAG, "world(World)");
-		AP.world = world;
+	public static final String TAG = "AndriodPunk";
+
+	public static World world;
+	public static Engine engine;
+	
+	/**
+	 * Initializes AndroidPunk engine
+	 */
+	public static void init() {
+		Log.d(TAG, "init()");
+		engine = new Engine();
+		engine.start();
 	}
 	
-	public static World world() {
-		Log.d(TAG, "world()");
-		return world;
+	/**
+	 * Stops AndroidPunk engine
+	 */
+	public static void destroy() {
+		Log.d(TAG, "detroy()");
+		if(engine != null && engine.isAlive()){
+			engine.done = true;
+		}
 	}
-
+	
 }

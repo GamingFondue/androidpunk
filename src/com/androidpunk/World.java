@@ -1,7 +1,7 @@
 package com.androidpunk;
 
-public class World{
 
-	public static String TAG = "[AndroidPunk]World";
-	
+public abstract class World{
+	public abstract void update();
+	public abstract void render(long interpolation);
 }

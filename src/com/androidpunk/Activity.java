@@ -16,8 +16,6 @@ import android.view.WindowManager;
  */
 public class Activity extends android.app.Activity {
 	
-	public static String TAG = "[AndroidPunk]Activity";
-	
 	/**
 	 * Begins game lifecycle. 
 	 * Global state setup.
@@ -26,11 +24,10 @@ public class Activity extends android.app.Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Log.d(TAG, "onCreate(Bundle)");
+		Log.d(AP.TAG, "onCreate(Bundle)");
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
-		// TODO: initialize AP singleton
 		// TODO: detect device capabilities: screen-size, OpenGL version, etc...
 	}
 	
@@ -39,7 +36,7 @@ public class Activity extends android.app.Activity {
 	 */
 	protected void onStart() {
 		super.onStart();
-		Log.d(TAG, "onStart()");
+		Log.d(AP.TAG, "onStart()");
 	};
 	
 	/**
@@ -47,17 +44,7 @@ public class Activity extends android.app.Activity {
 	 */
 	protected void onRestart() {
 		super.onRestart();
-		Log.d(TAG, "onRestart()");
-	}
-	
-	/**
-	 * Foreground lifecycle
-	 */
-	@Override
-	protected void onPause() {
-		super.onPause();
-		Log.d(TAG, "onPause()");
-		// TODO: Free allocated resources
+		Log.d(AP.TAG, "onRestart()");
 	}
 	
 	/**
@@ -66,7 +53,21 @@ public class Activity extends android.app.Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		Log.d(TAG, "onResume()");
+		Log.d(AP.TAG, "onResume()");
+		AP.init();
+		// TODO: allocate world resources
+	}
+	
+	/**
+	 * Foreground lifecycle
+	 */
+	@Override
+	protected void onPause() {
+		super.onPause();
+		Log.d(AP.TAG, "onPause()");
+		AP.destroy();
+		//AP.pause();
+		// TODO: free allocated resources
 	}
 	
 	/**
@@ -74,7 +75,7 @@ public class Activity extends android.app.Activity {
 	 */
 	protected void onStop() {
 		super.onStop();
-		Log.d(TAG, "onStop()");
+		Log.d(AP.TAG, "onStop()");
 	};
 	
 	/**
@@ -83,8 +84,8 @@ public class Activity extends android.app.Activity {
 	 * End of game lifecycle. 
 	 */
 	protected void onDestroy() {
-		Log.d(TAG, "onDestroy()");
 		super.onDestroy();
+		Log.d(AP.TAG, "onDestroy()");
 	};
 	
 }
